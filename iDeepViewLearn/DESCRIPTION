@@ -1,7 +1,7 @@
 Package: iDeepViewLearn
 Type: Package
 Title: Interpretable Deep Learning Method for Multi-view Learnings
-Version: 0.1.0
+Version: 0.2.0
 Author: Hengkang Wang, Han Lu, Ju Sun, Sandra Safo
 Maintainer: Han Lu <lu000054@umn.edu> and Sandra E. Safo <ssafo@umn.edu>
 Description: Interpretable deep learning method that models nonlinear relationships with deep neural network, associates data from two or more views, achieves feature selection, and constructs low-dimensional representation. Also with knowledge-based approach using the normalized Laplacian of a graph to encourage variable selection.
@@ -10,5 +10,5 @@ License: GPL (>=2.0)
 Encoding: UTF-8
 LazyData: true
 NeedsCompilation: no
-Packaged: 2023-02-19 19:29:50 UTC; hanlu
+Packaged: 2024-02-18 04:00:37 UTC; hanlu
 Depends: R (>= 3.5.0)

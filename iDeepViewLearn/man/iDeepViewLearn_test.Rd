@@ -30,12 +30,14 @@ iDeepViewLearn_test(python_path,
 
   \item{model}{A list object obtained from the training result, being the model trained.}
 
-  \item{clf}{A list obtained from the training result, being the classifier trained.}
+  \item{clf}{A list obtained from the training result, being the classifier trained; \strong{or a number being the loss of the last iteration, if outcome is missing. }}
 
-  \item{y_train}{An integer vector of length \eqn{n^d} representing the classes. This argument can be NULL.}
+  \item{y_train}{\strong{If outcome variable is categorical, an integer vector of length \eqn{n^d} representing the classes; if continuous, a numeric vector of length \eqn{n^d}; if survival, a \eqn{n^d} by 2 matrix with the first column being event indicator (0=censored, 1=event) and the second column being survival time. This argument can be NULL. }}
 
-  \item{y_test}{An integer vector of length \eqn{n_{test}^d} representing the classes. This argument can be NULL.}
+  \item{y_test}{See y_train for format, with length of the vector or number of rows of the matrix \eqn{n_{test}^d}. This argument can be NULL.}
 
+    \item{outtype}{\strong{A required argument to indicate the output type, including "categorical", "continuous", "survival", or "nothing" if you do not have outcome. }}
+    
   \item{top_rate}{A number between 0 to 1 to indicate the top fraction of features being selected. If impt is available, this argument will not be used.}
 
   \item{edged}{A list of length d, the number of views, with each element being a dataframe representing the edge information of the variables to use the Laplacian version of iDeepViewLearn. The columns represents the edge connection. For example, in a row, if the first column of writes 1 and the second columns writes 26, then it means that there is an edge connecting variable 1 and variable 26. The number of rows, \eqn{r_d}, is the total amount of edges. This argument can be NULL. If NULL, the algorithm will carry out the standard iDeepViewLearn method.}
@@ -50,6 +52,7 @@ iDeepViewLearn_test(python_path,
 
   \item{gpu}{TRUE or FALSE to use gpu.}
   \item{normalization}{TRUE or FALSE to normalize the testing data. We recommend using TRUE to prevent predictors with large norms to shadow the result.}
+  \item{myseed}{An integer to set the seed. Need to append a letter L to the integer, for example, 1234L.}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -63,7 +66,8 @@ The function will return train_result, a list of 5 elements. To see the elements
 %% ...
 The following arguments are related to model and model assessment.
 \item{pred}{A list of integers being the predicted class. Takes NULL if clf is NULL or if y_test is not available. Can be obtained by test_result[[1]].}
-\item{acc}{A number of classification accuracy. Takes NULL if clf is NULL or if y_test is not available. Can be obtained by test_result[[2]].}
+\item{performance}{\strong{A number as the model is performance. If the outcome is categorical, classification accuracy is presented; if the outcome is numerical, mean squared error is presented; if the outcome is survival, C-statsitics is provided; if the outcome is missing, BIC calculated by ncol(Zprimetest)*ln(nrow(Zprimetest)) + 2 * loss is presented.}}
+
 The following arguments are low-dimensinal representations during the testing stage.
 \item{Zprimetest}{A matrix of \eqn{n_{test} \times K}, being the shared latent code using the selected features only during the testing stage. Can be obtained by test_result[[3]].
 }
@@ -109,7 +113,7 @@ test_result = iDeepViewLearn_test(python_path = "~/.conda/envs/myenv/bin",
                                   model = train_result[[2]],
                                   clf = train_result[[3]],
                                   best_comb = train_result[[4]],
-                                  normalization=TRUE)
+                                  normalization=TRUE, myseed=1234L)
 
 ######## Obtaining testing result
 # To get the testing classification accuracy
