@@ -3,7 +3,7 @@ We present iDeepViewLearn (Interpretable Deep Learning Method for Multi-view Lea
 
 This method can be used for classification, regression, clustering, and reconstruction tasks. Check out examples in the R-package documentation. 
 
-Authors: Hengkang Wang, Han Lu, Ju Sun, Sandra E Safo
+Hengkang Wang, Han Lu, Ju Sun, Sandra E Safo (2024) Interpretable Deep Learning Methods for Multiview Learning iDeepViewLearn. BMC Bioinformatics. 
 
 
 ![fs (3)](https://github.com/lasandrall/iDeepViewLearn/assets/29103607/adf6084a-e257-4cad-968e-9cb5c5e99cc7)
