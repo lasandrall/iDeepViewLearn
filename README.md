@@ -10,3 +10,8 @@ Hengkang Wang, Han Lu, Ju Sun, Sandra E Safo (2024) Interpretable Deep Learning 
 
 
 ![train](https://github.com/lasandrall/iDeepViewLearn/assets/29103607/c96ea1ad-d4c0-40f9-9eea-3b9ac8c25269)
+
+To run iDeepViewLearn in R, use the following:
+
+> library(devtools)
+> install_github("lasandrall/iDeepViewLearn/iDeepViewLearn")
