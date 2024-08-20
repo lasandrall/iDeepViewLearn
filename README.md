@@ -5,13 +5,16 @@ This method can be used for classification, regression, clustering, and reconstr
 
 Hengkang Wang, Han Lu, Ju Sun, Sandra E Safo (2024) Interpretable Deep Learning Methods for Multiview Learning iDeepViewLearn. BMC Bioinformatics. 
 
+To run iDeepViewLearn in R, use the following:
+
+> library(devtools)
+> 
+> install_github("lasandrall/iDeepViewLearn/iDeepViewLearn")
+
+
 
 ![fs (3)](https://github.com/lasandrall/iDeepViewLearn/assets/29103607/adf6084a-e257-4cad-968e-9cb5c5e99cc7)
 
 
 ![train](https://github.com/lasandrall/iDeepViewLearn/assets/29103607/c96ea1ad-d4c0-40f9-9eea-3b9ac8c25269)
 
-To run iDeepViewLearn in R, use the following:
-
-> library(devtools)
-> install_github("lasandrall/iDeepViewLearn/iDeepViewLearn")
